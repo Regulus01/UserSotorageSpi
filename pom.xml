@@ -10,7 +10,7 @@
   <packaging>jar</packaging>
 
   <properties>
-    <maven.compiler.release>25</maven.compiler.release>
+    <maven.compiler.release>21</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <keycloak.version>26.7.1</keycloak.version>
     <mssql.jdbc.version>13.2.0.jre11</mssql.jdbc.version>
@@ -61,7 +61,7 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.14.0</version>
         <configuration>
-          <release>25</release>
+          <release>${maven.compiler.release}</release>
         </configuration>
       </plugin>
       <plugin>
