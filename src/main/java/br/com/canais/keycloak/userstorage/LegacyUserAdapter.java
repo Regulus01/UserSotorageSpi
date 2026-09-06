@@ -9,10 +9,12 @@ import org.keycloak.storage.adapter.AbstractUserAdapter;
 
 public final class LegacyUserAdapter extends AbstractUserAdapter{
 
+    private final KeycloakSession session;
     private final UserEntity entity;
 
     public LegacyUserAdapter(KeycloakSession session, RealmModel realm, ComponentModel storageProviderModel, UserEntity entity) {
         super(session, realm, storageProviderModel);
+        this.session = session;
         this.entity = entity;
         this.storageId = new StorageId(storageProviderModel.getId(), entity.externalId());
     }
@@ -38,6 +40,6 @@ public final class LegacyUserAdapter extends AbstractUserAdapter{
 
     @Override
     public SubjectCredentialManager credentialManager() {
-        return null;
+        return session.users().getUserCredentialManager(this);
     }
 }
